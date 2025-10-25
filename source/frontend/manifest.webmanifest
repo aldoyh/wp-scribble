@@ -1,6 +1,6 @@
 {
-	"name": "Scribbble",
-	"short_name": "Scribbble",
+	"name": "سكريبل",
+	"short_name": "سكريبل",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",
@@ -16,5 +16,7 @@
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
 	"start_url": "https://scribbble.io",
-	"display": "standalone"
+	"display": "standalone",
+	"dir": "rtl",
+	"lang": "ar"
 }
