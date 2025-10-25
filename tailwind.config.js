@@ -12,6 +12,10 @@ module.exports = {
 	theme: {
 		colors,
 		extend: {
+			fontFamily: {
+				sans: ['Tajawal', ...defaultTheme.fontFamily.sans],
+				serif: ['Tajawal', ...defaultTheme.fontFamily.serif],
+			},
 			backgroundColor: {
 				...defaultTheme.backgroundColor,
 				dark: '#18191a',
@@ -47,11 +51,12 @@ module.exports = {
 	variants: {
 		extend: {
 			visibility: ['group-hover'],
-			textColor: ['dark-hover'],
+			textColor: ['dark-hover', 'dark'],
 			cursor: ['disabled'],
-			backgroundColor: ['disabled'],
+			backgroundColor: ['disabled', 'dark'],
 			translate: ['dark'],
-			borderColor: ['disabled'],
+			borderColor: ['disabled', 'dark'],
+			opacity: ['dark'],
 		},
 	},
 	purge: {
