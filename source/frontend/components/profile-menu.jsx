@@ -59,7 +59,7 @@ export default function ProfileMenu(props) {
 			renderNameInfo = (
 				<div className="flex flex-col truncate" style={{ lineHeight: 1.175 }}>
 					{renderProfilePageLink}
-					<span className="text-xs font-light text-gray-300">{user.username}</span>
+					<span className="text-xs font-light text-gray-300 dark:text-gray-500">{user.username}</span>
 				</div>
 			);
 		} else {
@@ -67,7 +67,7 @@ export default function ProfileMenu(props) {
 		}
 
 		renderProfileInfo = (
-			<div className="flex items-center px-4 py-3 space-x-2 border-b border-gray-100">{renderNameInfo}</div>
+			<div className="flex items-center px-4 py-3 space-x-2 space-x-reverse border-b border-gray-100 dark:border-gray-700">{renderNameInfo}</div>
 		);
 	}
 
@@ -79,14 +79,14 @@ export default function ProfileMenu(props) {
 			></div>
 			<button
 				onClick={handleProfileMenuClick}
-				className="relative flex items-center justify-center overflow-hidden text-gray-400 rounded-full w-9 h-9 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:bg-gray-100 hover:text-gray-600 focus:text-gray-600"
+				className="relative flex items-center justify-center overflow-hidden text-gray-400 dark:text-gray-500 rounded-full w-9 h-9 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:bg-gray-100 dark:focus:bg-gray-700 hover:text-gray-600 dark:hover:text-gray-400 focus:text-gray-600 dark:focus:text-gray-400"
 			>
 				{renderImage}
-				<div className="absolute inset-0 rounded-full shadow-avatar"></div>
+				<div className="absolute inset-0 rounded-full shadow-avatar dark:shadow-avatar-dark"></div>
 			</button>
 			<div hidden={!isProfileMenuActive} className="relative z-10 ml-3">
 				<div
-					className="absolute right-0 w-48 mt-2 origin-top-right bg-white rounded-md shadow-lg"
+					className="absolute right-0 w-48 mt-2 origin-top-right bg-white dark:bg-gray-800 rounded-md shadow-lg"
 					role="menu"
 					aria-orientation="vertical"
 					aria-labelledby="user-menu"
