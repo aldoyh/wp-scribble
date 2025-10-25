@@ -3,12 +3,12 @@ import Error from './error.jsx';
 
 export default function NotFound() {
 	useEffect(() => {
-		document.title = 'Not found - Scribbble';
+		document.title = 'غير موجود - سكريبل';
 
 		return () => {
-			document.title = 'Scribbble';
+			document.title = 'سكريبل';
 		};
 	}, []);
 
-	return <Error title="404" description="Page not found" />;
+	return <Error title="404" description="الصفحة غير موجودة" />;
 }

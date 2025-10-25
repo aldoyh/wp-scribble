@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import Scribbble from '../components/logo/scribbble.jsx';
 
 export default function Error(props) {
-	let { title = 'Oops!', description = 'Something went wrong' } = props;
+	let { title = 'عذراً!', description = 'حدث خطأ ما' } = props;
 
 	useLayoutEffect(() => {
 		document.body.classList.add('dark:bg-dark');

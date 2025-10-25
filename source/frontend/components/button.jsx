@@ -47,7 +47,7 @@ export default function Button(props) {
 
 Button.colors = {
 	blue:
-		'bg-blue-500 disabled:bg-blue-300 disabled:border-blue-300 border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50',
+		'bg-blue-500 dark:bg-blue-600 disabled:bg-blue-300 dark:disabled:bg-blue-700 disabled:border-blue-300 dark:disabled:border-blue-700 border-blue-500 dark:border-blue-600 focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors',
 	red:
-		'bg-red-500 disabled:bg-red-300 disabled:border-red-300 border-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50',
+		'bg-red-500 dark:bg-red-600 disabled:bg-red-300 dark:disabled:bg-red-700 disabled:border-red-300 dark:disabled:border-red-700 border-red-500 dark:border-red-600 focus:ring focus:ring-red-300 focus:ring-opacity-50 hover:bg-red-600 dark:hover:bg-red-700 transition-colors',
 };

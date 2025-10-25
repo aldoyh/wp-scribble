@@ -12,11 +12,11 @@ export default function ProfileHeader(props) {
 				<a href="/" className="text-xl text-gray-700 dark:text-gray-200">
 					<Scribbble />
 				</a>
-				<div className="flex items-center">
+				<div className="flex items-center space-x-4 space-x-reverse">
 					<a
 						href={`/${username}/rss.xml`}
-						title="rss"
-						className="w-6 h-6 mr-4 text-gray-300 dark:text-gray-600 hover:text-blue-500"
+						title="RSS"
+						className="w-6 h-6 text-gray-300 dark:text-gray-600 hover:text-blue-500 dark:hover:text-blue-400"
 					>
 						<RssIcon />
 					</a>
