@@ -18,7 +18,7 @@ export default function Email(props) {
 							<Scribbble />
 						</h1>
 
-						<p className="inline-flex items-baseline mt-4 text-gray-400 dark:text-gray-400">
+						<p className="inline-flex items-baseline mt-4 text-gray-400 dark:text-gray-500">
 							<span className="text-center">تم إرسال بريد إلكتروني يحتوي على رابط تسجيل الدخول إلى {to}</span>
 						</p>
 					</div>
