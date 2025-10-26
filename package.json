@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"build": "snowpack build",
 		"lint": "eslint \"source/**/*.jsx\" \"source/**/*.mjs\"",
+		"lint:fix": "eslint --fix \"source/**/*.jsx\" \"source/**/*.mjs\"",
 		"develop_backend": "nodemon --watch source/backend -e js,mjs,sql --inspect source/backend/index.mjs fixture=login.sql",
 		"develop_frontend": "snowpack dev --polyfill-node"
 	},
