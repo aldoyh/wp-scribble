@@ -11,8 +11,8 @@ import adminRouter from './routes/admin.mjs';
 
 const port = 4000;
 
-let server = new Express();
-let bodyMiddleware = Express.urlencoded({ extended: true });
+const server = new Express();
+const bodyMiddleware = Express.urlencoded({ extended: true });
 
 server.use(sessionMiddleware);
 server.use(bodyMiddleware);
@@ -21,8 +21,8 @@ server.use(bodyParser.json());
 server.use(authenticationRouter);
 
 server.use(function (request, response, next) {
-	let user = request.user;
-	if (user == undefined) {
+	const user = request.user;
+	if (user === undefined) {
 		throw new UnauthorizedError('Not authorized');
 	}
 
