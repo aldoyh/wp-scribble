@@ -9,7 +9,7 @@ import authenticationRouter from './routes/authentication.mjs';
 import { UnauthorizedError } from './errors/http.mjs';
 import adminRouter from './routes/admin.mjs';
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const server = new Express();
 const bodyMiddleware = Express.urlencoded({ extended: true });
@@ -33,6 +33,6 @@ server.use(adminRouter);
 server.use(usersRouter);
 server.use(articlesRouter);
 
-server.listen(port, function () {
+server.listen(port, () => {
 	console.log(`🚀 Backend running on port ${port}`); // eslint-disable-line no-console
 });
