@@ -42,11 +42,11 @@ export default function Toggle() {
 			tabIndex="0"
 			onKeyDown={handleKeyDown}
 			aria-checked={isDarkMode}
-			aria-label="Toggle dark mode"
-			className="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none dark:border-blue-600 focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 dark:bg-blue-600"
+			aria-label="تبديل الوضع الداكن"
+			className="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none dark:border-blue-600 focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 dark:bg-blue-600 hover:bg-gray-300 dark:hover:bg-blue-700"
 			onClick={handleToggleClick}
 		>
-			<span className="sr-only">Use dark theme</span>
+			<span className="sr-only">استخدم الوضع الداكن</span>
 			<span
 				aria-hidden="true"
 				className="relative inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow dark:translate-x-5"

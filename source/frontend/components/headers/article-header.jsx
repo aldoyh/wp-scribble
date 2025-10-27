@@ -13,9 +13,9 @@ export default function ArticleHeader(props) {
 	let renderHeaderButtons;
 	if (!isStatic) {
 		renderHeaderButtons = (
-			<div className="flex items-center">
-				<Link to={`/edit/${slug}`} className="mr-4">
-					<PencilIcon className="w-5 h-5 text-blue-500" />
+			<div className="flex items-center space-x-4 space-x-reverse">
+				<Link to={`/edit/${slug}`}>
+					<PencilIcon className="w-5 h-5 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300" />
 				</Link>
 				<Toggle />
 			</div>

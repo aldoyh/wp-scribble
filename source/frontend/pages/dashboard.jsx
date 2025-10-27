@@ -40,13 +40,13 @@ export default function Dashboard() {
 	let [articleIdToDelete, setArticleIdToDelete] = useState();
 
 	useEffect(() => {
-		document.title = 'Dashboard - Scribbble';
-		document.body.classList.add('bg-gray-50');
+		document.title = 'لوحة التحكم - سكريبل';
+		document.body.classList.add('bg-gray-50', 'dark:bg-gray-900');
 		document.addEventListener('keyup', closeProfileEventListener);
 
 		return () => {
-			document.title = 'Scribbble';
-			document.body.classList.remove('bg-gray-50');
+			document.title = 'سكريبل';
+			document.body.classList.remove('bg-gray-50', 'dark:bg-gray-900');
 			document.removeEventListener('keyup', closeProfileEventListener);
 		};
 	}, []);
@@ -136,16 +136,16 @@ export default function Dashboard() {
 		addArticleButtonHidden = true;
 		renderArticlesList = (
 			<div className="flex flex-col items-center col-span-5 py-6 space-y-6 sm:py-12">
-				<div className="flex items-center justify-center p-4 bg-gray-100 rounded-full">
-					<PencilIcon className="w-8 h-8 text-gray-300" />
+				<div className="flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-700 rounded-full">
+					<PencilIcon className="w-8 h-8 text-gray-300 dark:text-gray-500" />
 				</div>
 				<div className="flex flex-col items-center space-y-3">
-					<p className="text-sm leading-5 text-gray-300">No posts yet. Start writing!</p>
+					<p className="text-sm leading-5 text-gray-300 dark:text-gray-500">لا توجد منشورات بعد. ابدأ الكتابة!</p>
 					<Link
 						to="/new"
-						className="px-4 py-3 text-sm font-medium leading-5 text-white bg-blue-500 rounded-md focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+						className="px-4 py-3 text-sm font-medium leading-5 text-white bg-blue-500 dark:bg-blue-600 rounded-md focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors"
 					>
-						Write
+						اكتب
 					</Link>
 				</div>
 			</div>
@@ -205,10 +205,10 @@ export default function Dashboard() {
 		renderEditProfileMenuButton = (
 			<button
 				onClick={handleEditProfileClick}
-				className="w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+				className="w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700"
 				role="menuitem"
 			>
-				Edit profile
+				تعديل الملف الشخصي
 			</button>
 		);
 	}
@@ -218,10 +218,10 @@ export default function Dashboard() {
 		renderExportArticleMenuLink = (
 			<a
 				href="/export"
-				className="block w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+				className="block w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700"
 				role="menuitem"
 			>
-				Export data
+				تصدير البيانات
 			</a>
 		);
 	}
@@ -231,10 +231,10 @@ export default function Dashboard() {
 		renderAdminMenuLink = (
 			<a
 				href={window.location.protocol + '//admin.' + window.location.host}
-				className="block w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+				className="block w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700"
 				role="menuitem"
 			>
-				Admin dashboard
+				لوحة تحكم المدير
 			</a>
 		);
 	}
@@ -244,23 +244,23 @@ export default function Dashboard() {
 			{renderDeleteArticleModal}
 			{renderEditProfileModal}
 			{renderArticleDetailsModal}
-			<div className="h-full px-6 overflow-auto font-sans bg-gray-50">
+			<div className="h-full px-6 overflow-auto font-sans bg-gray-50 dark:bg-gray-900">
 				<div
 					className={(profileMenu ? 'fixed' : 'hidden') + ' inset-0 w-full h-full'}
 					onClick={handleProfileClick}
 				></div>
-				<div className="max-w-4xl pt-6 mx-auto text-gray-700">
+				<div className="max-w-4xl pt-6 mx-auto text-gray-700 dark:text-gray-200">
 					<header className="flex items-center justify-between">
-						<a href="/" className="text-xl text-gray-700">
+						<a href="/" className="text-xl text-gray-700 dark:text-gray-200">
 							<Scribbble />
 						</a>
-						<div className="flex items-center space-x-4">
+						<div className="flex items-center space-x-4 space-x-reverse">
 							<Link
 								to="/new"
 								hidden={addArticleButtonHidden}
-								className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:border-blue-300"
+								className="px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:border-blue-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 							>
-								Write
+								اكتب
 							</Link>
 
 							<ProfileMenu user={user}>
@@ -276,17 +276,17 @@ export default function Dashboard() {
 								</Link>
 								<button
 									onClick={handleLogoutClick}
-									className="w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+									className="w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700"
 									role="menuitem"
 								>
-									Log out
+									تسجيل الخروج
 								</button>
 							</ProfileMenu>
 						</div>
 					</header>
 
 					<div className="py-6">
-						<section className="bg-white rounded shadow">
+						<section className="bg-white dark:bg-gray-800 rounded shadow">
 							<div className="grid p-4 gap-y-6 gap-x-2 sm:p-6 items-y-center" style={articlesListStyle}>
 								{renderArticlesList}
 							</div>
@@ -311,7 +311,7 @@ function Copied(props) {
 
 	return (
 		<p className={copiedClassName} onTransitionEnd={onTransitionEnd}>
-			Copied!
+			تم النسخ!
 		</p>
 	);
 }
@@ -339,7 +339,7 @@ function ArticleListItem(props) {
 	let renderStar = <StarIcon className={starColor + ' -ml-1 w-5 h-5'} />;
 	let renderCog = (
 		<button
-			className="text-blue-500 hover:text-blue-800 focus:outline-none focus:text-blue-800"
+			className="text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 focus:outline-none focus:text-blue-800 dark:focus:text-blue-300"
 			onClick={onSettingsClick}
 		>
 			<CogIcon className="w-5 h-5" />
@@ -347,14 +347,14 @@ function ArticleListItem(props) {
 	);
 
 	let renderPencil = (
-		<Link to={'/edit/' + slug} className="text-blue-500 hover:text-blue-800 focus:outline-none focus:text-blue-800">
+		<Link to={'/edit/' + slug} className="text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 focus:outline-none focus:text-blue-800 dark:focus:text-blue-300">
 			<PencilIcon className="w-5 h-5" />
 		</Link>
 	);
 
 	let renderTrash = (
 		<button
-			className="text-blue-500 hover:text-red-500 focus:outline-none focus:text-red-500"
+			className="text-blue-500 dark:text-blue-400 hover:text-red-500 dark:hover:text-red-400 focus:outline-none focus:text-red-500 dark:focus:text-red-400"
 			onClick={onDeleteClick}
 		>
 			<TrashIcon className="w-5 h-5" />
@@ -368,14 +368,14 @@ function ArticleListItem(props) {
 				<Link
 					to={`/${username}/${slug}/`}
 					// We need to add a pr-1 for emojis in the title
-					className="pr-1 text-sm font-medium leading-5 text-gray-500 truncate self-x-start"
+					className="pr-1 text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 truncate self-x-start hover:text-gray-700 dark:hover:text-gray-300"
 				>
 					{title}
 				</Link>
 				<div className="relative flex items-center justify-center ml-2">
 					<button
 						onClick={handleLinkIconClick}
-						className="invisible w-4 h-4 text-xs font-light text-gray-300 focus:text-gray-500 group-hover:visible hover:text-gray-500 focus:outline-none"
+						className="invisible w-4 h-4 text-xs font-light text-gray-300 dark:text-gray-600 focus:text-gray-500 dark:focus:text-gray-400 group-hover:visible hover:text-gray-500 dark:hover:text-gray-400 focus:outline-none"
 					>
 						<LinkIcon />
 					</button>
@@ -388,7 +388,7 @@ function ArticleListItem(props) {
 			<Link
 				to={`/preview/${slug}`}
 				// We need to add a pr-1 for emojis in the title
-				className="pr-1 text-sm font-medium leading-5 text-gray-500 truncate self-x-start"
+				className="pr-1 text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 truncate self-x-start hover:text-gray-700 dark:hover:text-gray-300"
 			>
 				{title}
 			</Link>
@@ -400,13 +400,13 @@ function ArticleListItem(props) {
 		let renderDateOrDraft;
 		if (!published) {
 			renderDateOrDraft = (
-				<span className="inline-flex px-2 mx-2 text-xs font-semibold leading-5 text-center text-gray-800 bg-gray-100 rounded-full self-x-end">
-					draft
+				<span className="inline-flex px-2 mx-2 text-xs font-semibold leading-5 text-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-full self-x-end">
+					مسودة
 				</span>
 			);
 		} else {
 			renderDateOrDraft = (
-				<span className="mx-2 text-sm leading-5 text-right text-gray-400">{parseDate(publishedAt)}</span>
+				<span className="mx-2 text-sm leading-5 text-right text-gray-400 dark:text-gray-500">{parseDate(publishedAt)}</span>
 			);
 		}
 
@@ -415,7 +415,7 @@ function ArticleListItem(props) {
 				{renderStar}
 				{renderTitle}
 				{renderDateOrDraft}
-				<span className="flex items-center space-x-2">
+				<span className="flex items-center space-x-2 space-x-reverse">
 					{renderPencil}
 					{renderCog}
 					{renderTrash}
@@ -427,12 +427,12 @@ function ArticleListItem(props) {
 		let renderDraft;
 		if (!published) {
 			renderDraft = (
-				<span className="inline-flex px-2 mx-2 text-xs font-semibold leading-5 text-center text-gray-800 bg-gray-100 rounded-full self-x-end">
-					draft
+				<span className="inline-flex px-2 mx-2 text-xs font-semibold leading-5 text-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-full self-x-end">
+					مسودة
 				</span>
 			);
 		} else {
-			renderDate = <span className="text-sm leading-5 text-gray-400">{parseDate(publishedAt)}</span>;
+			renderDate = <span className="text-sm leading-5 text-gray-400 dark:text-gray-500">{parseDate(publishedAt)}</span>;
 		}
 
 		return (
@@ -446,7 +446,7 @@ function ArticleListItem(props) {
 					{renderDate}
 				</div>
 				{renderDraft}
-				<span className="flex items-center col-start-4 space-x-2">
+				<span className="flex items-center col-start-4 space-x-2 space-x-reverse">
 					{renderPencil}
 					{renderCog}
 					{renderTrash}

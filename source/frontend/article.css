@@ -1,5 +1,5 @@
 .article a {
-	@apply text-blue-500 hover:underline;
+	@apply text-blue-500 hover:underline dark:text-blue-400 dark:hover:text-blue-300;
 }
 
 .article blockquote {
@@ -7,7 +7,7 @@
 }
 
 .article code {
-	@apply px-1 py-0.5 bg-blue-100 rounded dark:bg-gray-700;
+	@apply px-1 py-0.5 bg-blue-100 rounded dark:bg-gray-700 dark:text-gray-200;
 	tab-size: 4;
 }
 
@@ -33,6 +33,10 @@
 
 .article ul {
 	@apply list-disc list-inside;
+}
+
+.article p {
+	@apply dark:text-gray-300;
 }
 
 pre[class*='language-'] > code[class*='language-'] {
