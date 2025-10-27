@@ -2,36 +2,112 @@
 	"name": "scribbble",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "electron/main.js",
 	"scripts": {
 		"build": "npx snowpack build",
 		"lint": "eslint \"source/**/*.jsx\" \"source/**/*.mjs\"",
 		"lint:fix": "eslint --fix \"source/**/*.jsx\" \"source/**/*.mjs\"",
 		"develop_backend": "nodemon --watch source/backend -e js,mjs,sql --inspect source/backend/index.mjs fixture=login.sql",
 		"develop_frontend": "npx snowpack dev --polyfill-node",
-		"start": "node source/backend/index.mjs"
+		"start": "node source/backend/index.mjs",
+		"transpile": "node scripts/transpile-frontend.mjs",
+		"electron": "electron .",
+		"electron:dev": "NODE_ENV=development electron .",
+		"electron:pack": "electron-builder --dir",
+		"electron:dist": "electron-builder",
+		"desktop:dev": "concurrently \"npm run develop_backend\" \"npm run develop_frontend\" \"wait-on http://localhost:4000 && wait-on http://localhost:8081 && npm run electron:dev\"",
+		"desktop:build": "npm run build && npm run transpile && npm run electron:pack",
+		"desktop:dist": "npm run build && npm run transpile && npm run electron:dist"
 	},
 	"author": "",
 	"license": "ISC",
+	"build": {
+		"appId": "com.scribbble.app",
+		"productName": "Scribbble",
+		"directories": {
+			"output": "dist"
+		},
+		"files": [
+			"build/**/*",
+			"electron/**/*",
+			"source/backend/**/*",
+			"content/**/*",
+			"database/**/*",
+			"node_modules/**/*",
+			"package.json"
+		],
+		"mac": {
+			"category": "public.app-category.productivity",
+			"icon": "electron/assets/icon.icns",
+			"target": [
+				{
+					"target": "dmg",
+					"arch": ["x64", "arm64"]
+				},
+				{
+					"target": "zip",
+					"arch": ["x64", "arm64"]
+				}
+			]
+		},
+		"win": {
+			"icon": "electron/assets/icon.ico",
+			"target": [
+				{
+					"target": "nsis",
+					"arch": ["x64"]
+				},
+				{
+					"target": "portable",
+					"arch": ["x64"]
+				}
+			]
+		},
+		"linux": {
+			"icon": "electron/assets/icon.png",
+			"target": [
+				{
+					"target": "AppImage",
+					"arch": ["x64"]
+				},
+				{
+					"target": "deb",
+					"arch": ["x64"]
+				}
+			]
+		},
+		"nsis": {
+			"createDesktopShortcut": true,
+			"createStartMenuShortcut": true,
+			"shortcutName": "Scribbble"
+		}
+	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.12.1",
+		"@babel/plugin-syntax-top-level-await": "^7.14.5",
 		"@babel/preset-env": "^7.12.1",
 		"@babel/preset-react": "^7.12.1",
+		"@electron-forge/cli": "^7.10.2",
 		"@snowpack/plugin-build-script": "^2.0.11",
 		"@snowpack/plugin-optimize": "^0.2.8",
 		"@snowpack/plugin-webpack": "^2.1.1",
 		"@tailwindcss/forms": "^0.2.1",
 		"autoprefixer": "^10.0.2",
+		"concurrently": "^9.2.1",
+		"electron": "^38.4.0",
+		"electron-builder": "^26.0.12",
 		"eslint": "^7.12.1",
 		"eslint-plugin-react": "^7.21.5",
 		"nodemon": "^2.0.6",
-		"postcss-cli": "^8.3.0",
+		"postcss": "^8.5.6",
+		"postcss-cli": "^10.1.0",
 		"serve": "^11.3.2",
 		"snowpack": "^2.17.0",
 		"tailwindcss": "^2.0.1",
 		"tailwindcss-dark-mode": "^1.1.7",
 		"tailwindcss-grid-placement": "0.0.2",
-		"tailwindcss-grid-template": "0.0.2"
+		"tailwindcss-grid-template": "0.0.2",
+		"wait-on": "^9.0.1"
 	},
 	"dependencies": {
 		"@babel/core": "^7.12.3",
@@ -49,8 +125,8 @@
 		"mdast-util-to-hast": "^10.0.0",
 		"mdast-util-to-markdown": "^0.5.3",
 		"nodemailer": "^6.4.14",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
+		"react": "0.0.0-experimental-7f28234f8",
+		"react-dom": "0.0.0-experimental-7f28234f8",
 		"react-spring": "^8.0.27",
 		"react-sprout": "^0.0.30",
 		"rehype-react": "^6.1.0",

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scribbble - Connection Error</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			text-align: center;
+		}
+		
+		.error-container {
+			max-width: 500px;
+			padding: 2rem;
+		}
+		
+		.logo {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			letter-spacing: -0.02em;
+		}
+		
+		.error-icon {
+			font-size: 4rem;
+			margin: 1rem 0;
+		}
+		
+		.message {
+			font-size: 1.25rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		
+		.submessage {
+			font-size: 1rem;
+			opacity: 0.9;
+			margin-bottom: 2rem;
+			line-height: 1.5;
+		}
+		
+		.instructions {
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 8px;
+			padding: 1.5rem;
+			text-align: left;
+			margin-top: 2rem;
+		}
+		
+		.instructions h3 {
+			margin: 0 0 1rem 0;
+			font-size: 1.1rem;
+		}
+		
+		.instructions ol {
+			margin: 0;
+			padding-left: 1.5rem;
+		}
+		
+		.instructions li {
+			margin-bottom: 0.5rem;
+		}
+		
+		.code {
+			background: rgba(0, 0, 0, 0.3);
+			padding: 0.25rem 0.5rem;
+			border-radius: 4px;
+			font-family: 'Monaco', 'Consolas', monospace;
+			font-size: 0.875rem;
+		}
+		
+		.retry-button {
+			background: rgba(255, 255, 255, 0.2);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			color: white;
+			padding: 0.75rem 1.5rem;
+			border-radius: 6px;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		
+		.retry-button:hover {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	</style>
+</head>
+<body>
+	<div class="error-container">
+		<div class="logo">Scribbble</div>
+		<div class="error-icon">⚠️</div>
+		<div class="message">Cannot connect to development server</div>
+		<div class="submessage">
+			The desktop app couldn't connect to the local development server.
+			Make sure the backend and frontend servers are running.
+		</div>
+		
+		<button class="retry-button" onclick="location.reload()">Retry Connection</button>
+		
+		<div class="instructions">
+			<h3>To start the development servers:</h3>
+			<ol>
+				<li>Open terminal and navigate to the project directory</li>
+				<li>Run <span class="code">npm run develop_backend</span> in one terminal</li>
+				<li>Run <span class="code">npm run develop_frontend</span> in another terminal</li>
+				<li>Wait for both servers to start, then click "Retry Connection"</li>
+			</ol>
+		</div>
+	</div>
+</body>
+</html>

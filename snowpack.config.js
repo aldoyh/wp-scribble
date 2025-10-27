@@ -15,15 +15,12 @@ if (production) {
 
 module.exports = {
 	mount,
-	proxy: {
-		'/api': 'http://localhost:4000/api',
-		'/login': {
-			target: 'http://localhost:4000',
-		},
-		'/export': {
-			target: 'http://localhost:4000',
-		},
-	},
+	routes: [
+		{ match: 'routes', src: '/api/(.*)', dest: 'http://localhost:4000/api/$1' },
+		{ match: 'routes', src: '/login', dest: 'http://localhost:4000/login' },
+		{ match: 'routes', src: '/export', dest: 'http://localhost:4000/export' },
+		{ match: 'all', src: '.*', dest: '/index.html' },
+	],
 	plugins: [
 		['@snowpack/plugin-build-script', { cmd: 'postcss', input: ['.css'], output: ['.css'] }],
 		// ['@snowpack/plugin-optimize', {}], // can not enable this as in combination with the webpack plugin errors __SNOWPACK__ENV
@@ -31,12 +28,10 @@ module.exports = {
 	],
 	devOptions: {
 		out: 'build/frontend',
-		fallback: 'index.html',
 		hmrErrorOverlay: false,
 	},
 	buildOptions: {
 		clean: true,
-		metaDir: '__meta__',
-		webModulesUrl: '__modules__',
+		metaUrlPath: '__meta__',
 	},
 };

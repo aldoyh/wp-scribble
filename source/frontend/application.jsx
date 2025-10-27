@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'react-sprout';
 import ScreenSize from './components/screen-size';
+import { DesktopProvider } from './contexts/desktop.jsx';
 
 import Home from './pages/home';
 import Login from './pages/login';
@@ -13,6 +14,7 @@ import Article, { getArticleData } from './routes/article';
 import Preview, { getPreviewData } from './routes/preview';
 import Dashboard, { getDashboardData } from './pages/dashboard';
 import Edit, { getEditData } from './pages/edit';
+import Settings, { getSettingsData } from './pages/settings';
 import ErrorBoundary from './components/error-boundary';
 
 const ApplicationRouter = Router(
@@ -23,6 +25,7 @@ const ApplicationRouter = Router(
 		<Profile path=":username/" data={getProfileData} />
 		<Article path=":username/:slug/" data={getArticleData} />
 		<Dashboard path="dashboard" data={getDashboardData} />
+		<Settings path="settings" data={getSettingsData} />
 		<New path="new" data={getNewData} />
 		<Edit path="edit/:slug" data={getEditData} />
 		<Preview path="preview/:slug" data={getPreviewData} />
@@ -33,9 +36,11 @@ const ApplicationRouter = Router(
 
 function Application() {
 	return (
-		<ScreenSize>
-			<ApplicationRouter />
-		</ScreenSize>
+		<DesktopProvider>
+			<ScreenSize>
+				<ApplicationRouter />
+			</ScreenSize>
+		</DesktopProvider>
 	);
 }
 

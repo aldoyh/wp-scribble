@@ -5,6 +5,7 @@ import usersRouter from './routes/users.mjs';
 import articlesRouter from './routes/articles.mjs';
 import sessionMiddleware from './middleware/session.mjs';
 import authenticationRouter from './routes/authentication.mjs';
+import settingsRouter from './routes/settings.mjs';
 
 import { UnauthorizedError } from './errors/http.mjs';
 import adminRouter from './routes/admin.mjs';
@@ -32,6 +33,7 @@ server.use(function (request, response, next) {
 server.use(adminRouter);
 server.use(usersRouter);
 server.use(articlesRouter);
+server.use(settingsRouter);
 
 server.listen(port, () => {
 	console.log(`🚀 Backend running on port ${port}`); // eslint-disable-line no-console
